@@ -1,0 +1,220 @@
+<ion-header transparent no-shadow no-border style="padding-top: 20px;">
+  <ion-navbar transparent no-shadow no-border>
+    <ion-input type="search" placeholder="Digite sua busca..." [(ngModel)]="searchQuery" (change)="onSearch()" class="input-busca"></ion-input>
+    <!--<ion-icon name="search" class="ico3" *ngIf="ocultar"></ion-icon>-->
+    <ion-buttons end>
+      <button ion-button icon-only (click)="clearSearch()" *ngIf="searchQuery.length>0">
+        <ion-icon md="md-close" ios="md-close" class="btn-fechar"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+<div class="comteudo">
+
+<ion-list>
+  <ion-item *ngFor="let cliente of clientes">
+
+    <ion-avatar item-start>
+      <img src="../../assets/imgs/pdf.png">
+    </ion-avatar>
+
+     <!--<a href="https://developeranddesigner.com.br/cad_imovel/api/pdf/{{cliente.id_cliente}}.pdf"
+      item-end
+      (click)="gerarPdf(cliente.id_cliente)"
+      class="link2">
+        <ion-icon name="download" color="tema" style="font-size: 25px;"></ion-icon>
+      </a>-->
+      <ion-icon name="download" color="tema" style="font-size: 25px;" item-end
+      (click)="gerarPdf(cliente.id_cliente, cliente.nome_cliente, cliente.email_cliente, cliente.telefone_cliente)">
+      </ion-icon>
+
+    <h2>{{cliente.nome_cliente}}</h2>
+    <p>{{cliente.email_cliente}}</p>
+    <p>{{cliente.telefone_cliente}}</p>
+
+
+
+  </ion-item>
+</ion-list>
+
+
+
+
+<div *ngIf="isLoading3" text-center passing class="load">
+  <ion-spinner></ion-spinner>
+</div>
+
+<ion-list no-lines class="lista-lojas" *ngIf="isLoading2">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <div class="card-img skeleton img-loja-bg">
+          <!-- waiting for img to load from javascript -->
+        </div>
+      </ion-avatar>
+        <div class="text4">
+          <h2 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+          <!-- wating for title to load from javascript -->
+          </h2>
+          <h3 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </h3>
+          <p class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </p>
+        </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <div class="card-img skeleton img-loja-bg">
+          <!-- waiting for img to load from javascript -->
+        </div>
+      </ion-avatar>
+        <div class="text4">
+          <h2 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+          <!-- wating for title to load from javascript -->
+          </h2>
+          <h3 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </h3>
+          <p class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </p>
+        </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <div class="card-img skeleton img-loja-bg">
+          <!-- waiting for img to load from javascript -->
+        </div>
+      </ion-avatar>
+        <div class="text4">
+          <h2 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+          <!-- wating for title to load from javascript -->
+          </h2>
+          <h3 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </h3>
+          <p class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </p>
+        </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <div class="card-img skeleton img-loja-bg">
+          <!-- waiting for img to load from javascript -->
+        </div>
+      </ion-avatar>
+        <div class="text4">
+          <h2 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+          <!-- wating for title to load from javascript -->
+          </h2>
+          <h3 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </h3>
+          <p class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </p>
+        </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <div class="card-img skeleton img-loja-bg">
+          <!-- waiting for img to load from javascript -->
+        </div>
+      </ion-avatar>
+        <div class="text4">
+          <h2 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+          <!-- wating for title to load from javascript -->
+          </h2>
+          <h3 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </h3>
+          <p class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </p>
+        </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <div class="card-img skeleton img-loja-bg">
+          <!-- waiting for img to load from javascript -->
+        </div>
+      </ion-avatar>
+        <div class="text4">
+          <h2 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+          <!-- wating for title to load from javascript -->
+          </h2>
+          <h3 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </h3>
+          <p class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </p>
+        </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <div class="card-img skeleton img-loja-bg">
+          <!-- waiting for img to load from javascript -->
+        </div>
+      </ion-avatar>
+        <div class="text4">
+          <h2 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+          <!-- wating for title to load from javascript -->
+          </h2>
+          <h3 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </h3>
+          <p class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </p>
+        </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <div class="card-img skeleton img-loja-bg">
+          <!-- waiting for img to load from javascript -->
+        </div>
+      </ion-avatar>
+        <div class="text4">
+          <h2 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+          <!-- wating for title to load from javascript -->
+          </h2>
+          <h3 class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </h3>
+          <p class="card-title skeleton" style="max-width: 150px; margin-left: 15px; margin-bottom: 10px;">
+            <!-- wating for title to load from javascript -->
+          </p>
+        </div>
+    </ion-item>
+
+</ion-list>
+
+<div class="semcliente" *ngIf="ndaencontrado">
+  <span>Nenhum cliente encontrado.</span>
+</div>
+
+<!--<ng-template #estadoVazio>
+  <div class="semcliente">
+    <span>Nenhum cliente cadastrada.</span>
+  </div>
+</ng-template>-->
+
+</div>
+
+
+
+</ion-content>

@@ -1,0 +1,94 @@
+<ion-header transparent no-shadow no-border>
+  <ion-navbar transparent no-shadow no-border>
+    <button ion-button menuToggle style="color: #000;">
+      <ion-icon name="menu" color="light" style="color: #000;"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="titulo4">
+    <h3>IMÓVEL REGULARIZADO</h3>
+  </div>
+
+  <div class="conteudo">
+
+    <div>
+      <b>TIPO DO IMÓVEL</b>
+      <ion-item style="margin-bottom: 10px; border: 1px solid #b1b1b1; margin-top: 10px;">
+        <ion-label>Tipo do Imóvel</ion-label>
+        <ion-select [(ngModel)]="tipo_imovel_cliente">
+          <ion-option
+          *ngFor="let tipo of tipos">
+          {{tipo.nome_tipo}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div style="margin-bottom: 27px;">
+      <b>MATRÍCULA DO IMÓVEL</b>
+      <ion-input type="text" style="margin-top: 10px;" placeholder="Matrícula do Imóvel" class="input3"
+      [(ngModel)]="matricula_imovel_cliente"></ion-input>
+     </div>
+
+      <b>DOCUMENTO DO IMÓVEL</b>
+      <select
+          id="status3"
+          name="status3"
+          onChange="mostrar3(this.value);"
+          class="select1"
+          [(ngModel)]="doc_imovel_cliente">
+            <option value="" disabled selected>Selecione</option>
+            <option value="Escritura Pública">Escritura Pública</option>
+            <option value="Instrumento Particular">Instrumento Particular</option>
+            <option value="Formal de Partilha (herança)">Formal de Partilha (herança)</option>
+            <option value="Sentença Judicial">Sentença Judicial</option>
+            <option value="Outros">Outros</option>
+      </select>
+
+    <div style="margin-bottom: 27px; display: none;" id="outro_doc_imovel">
+      <b>OUTROS - ESPECIFICAR</b>
+      <ion-input type="text" style="margin-top: 10px;" placeholder="Outros" class="input3"
+      [(ngModel)]="doc_imovel_outro_cliente"></ion-input>
+     </div>
+
+     <div style="margin-bottom: 27px;">
+      <b>ÁREA CONSTRUÍDA</b>
+      <ion-input type="tel" style="margin-top: 10px;" placeholder="Área contruída" class="input3"
+      [(ngModel)]="area_contru_imovel_cliente"></ion-input>
+     </div>
+
+     <b>CONSTRUÇÃO É REGULARIZADA? (tem habite-se e está averbada em cartório?)</b>
+     <ion-item style="margin-bottom: 22px; border: 1px solid #b1b1b1; margin-top: 10px;">
+       <ion-label>Selecione</ion-label>
+       <ion-select [(ngModel)]="contru_regular_cliente">
+         <ion-option value="Sim">Sim</ion-option>
+         <ion-option value="Não">Não</ion-option>
+       </ion-select>
+     </ion-item>
+
+     <b>IMÓVEL É: (FINS DE PESQUISA)</b>
+     <ion-item style="margin-bottom: 22px; border: 1px solid #b1b1b1; margin-top: 10px;">
+       <ion-label>Selecione</ion-label>
+       <ion-select [(ngModel)]="imovel_e_cliente">
+         <ion-option value="Quitado">Quitado</ion-option>
+         <ion-option value="Financiado">Financiado</ion-option>
+       </ion-select>
+     </ion-item>
+
+     <div style="margin-bottom: 28px;">
+      <b>VALOR ATRIBUÍDO AO IMÓVEL</b>
+      <ion-input type="tel" style="margin-top: 10px;" placeholder="Valor atribuído ao imóvel" class="input3"
+      [(ngModel)]="valor_atribu_imovel_cliente"
+      [brmasker]="{money: true}"></ion-input>
+     </div>
+
+        <div class="botoes">
+          <button ion-button round color="tema" class="btn" (click)="passo5()">Próximo</button>
+        </div>
+
+  </div>
+
+</ion-content>

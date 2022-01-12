@@ -1,0 +1,38 @@
+
+<ion-content>
+
+  <div class="conteudo">
+
+      <div class="logo">
+        <img src="../../assets/imgs/logo2.png">
+      </div>
+
+      <div class="form">
+
+        <ion-list>
+
+          <ion-item class="input-login">
+            <ion-input type="text" placeholder="E-mail" [(ngModel)]="email_usuario"></ion-input>
+          </ion-item>
+
+          <ion-item class="input-login">
+            <ion-input type="password" placeholder="Senha" [(ngModel)]="senha_usuario"></ion-input>
+          </ion-item>
+
+        </ion-list>
+
+        <button ion-button full class="btn-login" (click)="login()">Entrar</button>
+
+        <div class="esqueci">
+          <span (click)="esqueci()">Esqueci minha senha</span>
+        </div>
+
+      </div>
+
+  </div>
+
+  <div class="versao">
+    <span>V1.0.1</span>
+  </div>
+
+  </ion-content>

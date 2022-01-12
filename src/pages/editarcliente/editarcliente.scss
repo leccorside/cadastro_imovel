@@ -1,0 +1,112 @@
+page-editarcliente {
+
+  .conteudo {
+    padding: 20px;
+  }
+
+  .segment-md .segment-button{
+    color: var(--tema);
+  }
+
+  .item-md.item-block .item-inner{
+    border-bottom: none !important;
+  }
+
+  .img-doc{
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+    max-width: 400px;
+    background-position: center center;
+    background-size: cover;
+    display: block;
+  }
+
+  .img5 {
+    margin-bottom: 20px;
+  }
+
+  .hr1{
+    height: 3px;
+    width: 20px;
+    float: left;
+    background: var(--tema);
+    margin-right: 5px;
+  }
+
+  .segment-md .segment-button.segment-activated{
+    border-color: var(--tema) !important;
+  }
+
+  .input3{
+    border: 1px solid #b1b1b1;
+    padding-left: 15px;
+    margin-bottom: 10px;
+  }
+
+  .btn{
+    height: 45px;
+  }
+
+  .imagens{
+    position: relative;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .none{
+    display: none;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  .icone-camera{
+    font-size: 30px;
+    position: absolute;
+    z-index: 99999;
+    top: 45%;
+    left: 43.3%;
+    background-color: #fff;
+    padding: 5px 8px;
+    border-radius: 50%;
+  }
+
+  .img-mini{
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+    max-width: 200px;
+    background-position: center center;
+    background-size: cover;
+    display: block;
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
+  .img-mini2{
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+    max-width: 200px;
+    background-position: center center;
+    background-size: cover;
+    display: block;
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
+  .span1{
+    position: relative;
+
+    font-weight: 700;
+  }
+
+
+
+}

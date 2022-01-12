@@ -1,5 +1,7 @@
 {
   "name": "cad_imovel_novo3",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

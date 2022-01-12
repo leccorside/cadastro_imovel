@@ -29,11 +29,15 @@
 
   <link href="build/main.css" rel="stylesheet">
 
+
+
 </head>
 <body>
 
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
@@ -42,8 +46,203 @@
        It contains all of the dependencies in node_modules -->
   <script src="build/vendor.js"></script>
 
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt9lU3Sr-HAnNhPt3VLlpCOOX62TZA2AI"
+  type="text/javascript"></script>
+
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>
+
+
+
+  <script type="text/javascript">
+    function mostrar(id) {
+      if (id == "unidade1") {
+            $("#unidade1").show();
+            $("#unidade2").hide();
+            $("#unidade3").hide();
+            $("#unidade4").hide();
+            $("#unidade5").hide();
+            $("#unidade6").hide();
+            $("#unidade7").hide();
+            $("#unidade8").hide();
+            $("#unidade9").hide();
+            $("#unidade10").hide();
+        }
+        if (id == "unidade2") {
+            $("#unidade1").show();
+            $("#unidade2").show();
+            $("#unidade3").hide();
+            $("#unidade4").hide();
+            $("#unidade5").hide();
+            $("#unidade6").hide();
+            $("#unidade7").hide();
+            $("#unidade8").hide();
+            $("#unidade9").hide();
+            $("#unidade10").hide();
+        }
+        if (id == "unidade3") {
+            $("#unidade1").show();
+            $("#unidade2").show();
+            $("#unidade3").show();
+            $("#unidade4").hide();
+            $("#unidade5").hide();
+            $("#unidade6").hide();
+            $("#unidade7").hide();
+            $("#unidade8").hide();
+            $("#unidade9").hide();
+            $("#unidade10").hide();
+        }
+        if (id == "unidade4") {
+            $("#unidade1").show();
+            $("#unidade2").show();
+            $("#unidade3").show();
+            $("#unidade4").show();
+            $("#unidade5").hide();
+            $("#unidade6").hide();
+            $("#unidade7").hide();
+            $("#unidade8").hide();
+            $("#unidade9").hide();
+            $("#unidade10").hide();
+        }
+        if (id == "unidade5") {
+            $("#unidade1").show();
+            $("#unidade2").show();
+            $("#unidade3").show();
+            $("#unidade4").show();
+            $("#unidade5").show();
+            $("#unidade6").hide();
+            $("#unidade7").hide();
+            $("#unidade8").hide();
+            $("#unidade9").hide();
+            $("#unidade10").hide();
+        }
+        if (id == "unidade6") {
+            $("#unidade1").show();
+            $("#unidade2").show();
+            $("#unidade3").show();
+            $("#unidade4").show();
+            $("#unidade5").show();
+            $("#unidade6").show();
+            $("#unidade7").hide();
+            $("#unidade8").hide();
+            $("#unidade9").hide();
+            $("#unidade10").hide();
+        }
+        if (id == "unidade7") {
+            $("#unidade1").show();
+            $("#unidade2").show();
+            $("#unidade3").show();
+            $("#unidade4").show();
+            $("#unidade5").show();
+            $("#unidade6").show();
+            $("#unidade7").show();
+            $("#unidade8").hide();
+            $("#unidade9").hide();
+            $("#unidade10").hide();
+        }
+        if (id == "unidade8") {
+            $("#unidade1").show();
+            $("#unidade2").show();
+            $("#unidade3").show();
+            $("#unidade4").show();
+            $("#unidade5").show();
+            $("#unidade6").show();
+            $("#unidade7").show();
+            $("#unidade8").show();
+            $("#unidade9").hide();
+            $("#unidade10").hide();
+        }
+        if (id == "unidade9") {
+            $("#unidade1").show();
+            $("#unidade2").show();
+            $("#unidade3").show();
+            $("#unidade4").show();
+            $("#unidade5").show();
+            $("#unidade6").show();
+            $("#unidade7").show();
+            $("#unidade8").show();
+            $("#unidade9").show();
+            $("#unidade10").hide();
+        }
+        if (id == "unidade10") {
+            $("#unidade1").show();
+            $("#unidade2").show();
+            $("#unidade3").show();
+            $("#unidade4").show();
+            $("#unidade5").show();
+            $("#unidade6").show();
+            $("#unidade7").show();
+            $("#unidade8").show();
+            $("#unidade9").show();
+            $("#unidade10").show();
+        }
+    }
+    </script>
+
+<script type="text/javascript">
+  function mostrar2(id) {
+    if (
+      id == "Casado - comunhão parcial de bens" ||
+      id == "Casado - comunhão universal de bens" ||
+      id == "Casado - separação total de bens" ||
+      id == "Casado - Participação final nos aquestos") {
+        $("#nome_conj").show();
+        $("#cpf_conj").show();
+        $("#rg_conj").show();
+        $("#nasc_conj").show();
+        $("#profissao_conj").show();
+        $("#escolaridade_conj").show();
+        $("#contato_conj").show();
+    }
+    if (id == "Solteiro") {
+        $("#nome_conj").hide();
+        $("#cpf_conj").hide();
+        $("#rg_conj").hide();
+        $("#nasc_conj").hide();
+        $("#profissao_conj").hide();
+        $("#escolaridade_conj").hide();
+        $("#contato_conj").hide();
+    }
+    if (id == "Viúvo") {
+        $("#nome_conj").hide();
+        $("#cpf_conj").hide();
+        $("#rg_conj").hide();
+        $("#nasc_conj").hide();
+        $("#profissao_conj").hide();
+        $("#escolaridade_conj").hide();
+        $("#contato_conj").hide();
+    }
+    if (id == "Separado") {
+        $("#nome_conj").hide();
+        $("#cpf_conj").hide();
+        $("#rg_conj").hide();
+        $("#nasc_conj").hide();
+        $("#profissao_conj").hide();
+        $("#escolaridade_conj").hide();
+        $("#contato_conj").hide();
+    }
+  }
+  </script>
+
+<script type="text/javascript">
+  function mostrar3(id) {
+    if (id == "Outros") {
+        $("#outro_doc_imovel").show();
+    }
+    if (id == "Escritura Pública") {
+        $("#outro_doc_imovel").hide();
+    }
+    if (id == "Instrumento Particular") {
+        $("#outro_doc_imovel").hide();
+    }
+    if (id == "Formal de Partilha (herança)") {
+        $("#outro_doc_imovel").hide();
+    }
+    if (id == "Sentença Judicial") {
+        $("#outro_doc_imovel").hide();
+    }
+  }
+  </script>
 
 </body>
 </html>

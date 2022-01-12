@@ -1,0 +1,27 @@
+<ion-header transparent no-shadow no-border>
+  <ion-navbar transparent no-shadow no-border>
+    <button ion-button menuToggle style="color: #000;">
+      <ion-icon name="menu" color="light" style="color: #000;"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="titulo4">
+    <h5>LOCALIZAÇÃO DO IMÓVEL</h5>
+  </div>
+
+  <div class="conteudo">
+
+        <h3>Clique no botão abaixo para capturar a localização do imóvel</h3>
+
+        <div class="botoes">
+          <button ion-button round color="tema" class="btn" (click)="localizar()">Salvar Localização</button>
+        </div>
+
+  </div>
+
+  <div id="map"></div>
+
+</ion-content>

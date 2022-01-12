@@ -1,0 +1,39 @@
+<ion-header transparent no-shadow no-border>
+  <ion-navbar transparent no-shadow no-border>
+    <button ion-button menuToggle style="color: #000;">
+      <ion-icon name="menu" color="light" style="color: #000;"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="titulo4">
+    <h5>IMAGENS DOS DOCUMENTOS</h5>
+  </div>
+
+  <div class="conteudo">
+
+        <h3>Selecione uma imagem do RG ou CNH do conjuge</h3>
+
+        <div class="imagens">
+          <span>Frente</span>
+          <img src="../../assets/imgs/sem-imagem.jpg" [class]="className1">
+          <img src="{{base64Image1}}" [class]="className2">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem1()"></ion-icon>
+        </div>
+
+        <div class="imagens">
+          <span>Trás</span>
+          <img src="../../assets/imgs/sem-imagem.jpg" [class]="className3">
+          <img src="{{base64Image2}}" [class]="className4">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem2()"></ion-icon>
+        </div>
+
+        <div class="botoes">
+          <button ion-button round color="tema" class="btn" (click)="proximo1()">Próximo</button>
+        </div>
+
+  </div>
+
+</ion-content>

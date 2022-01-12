@@ -1,0 +1,208 @@
+<ion-header transparent no-shadow no-border>
+  <ion-navbar transparent no-shadow no-border>
+    <button ion-button menuToggle style="color: #000;">
+      <ion-icon name="menu" color="light" style="color: #000;"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="titulo4">
+    <h3>DADOS INICIAIS</h3>
+  </div>
+
+  <div class="conteudo">
+
+        <div class="entrevistador" *ngFor="let member of members">
+          <b>ENTREVISTADOR</b><br>
+          <span style="line-height: 35px;">{{member.nome_usuario}}</span>
+        </div>
+
+          <!--<ion-list radio-group [(ngModel)]="revista_cliente" no-lines>
+
+           <b>REVISTA?</b>
+            <ion-item>
+              <ion-label>Sim</ion-label>
+              <ion-radio value="Sim"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>Não</ion-label>
+              <ion-radio value="Não" checked></ion-radio>
+            </ion-item>
+          </ion-list>-->
+
+          <div style="margin-bottom: 27px;">
+            <b>OCUPANTE/POSSEIRO/PROPRIETÁRIO</b>
+            <ion-input type="text" style="margin-top: 10px;" placeholder="OCUPANTE/POSSEIRO/PROPRIETÁRIO" class="input3" [(ngModel)]="nome_cliente"></ion-input>
+           </div>
+
+          <div class="visita" style="margin-bottom: 25px;">
+            <b>VISITA</b>
+            <ion-item>
+              <ion-label>Data</ion-label>
+              <ion-datetime
+              displayFormat="DD/MM/YYYY"
+              cancelText="Cancelar"
+              doneText="Ok"
+              pickerFormat="DD/MM/YYYY"
+              (ionChange)="parseDate()"
+              [(ngModel)]="data_cliente"
+              display-timezone="utc"
+              placeholder="Selecione uma data"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Hora</ion-label>
+              <ion-datetime
+              displayFormat="HH:mm"
+              cancelText="Cancelar"
+              doneText="Ok"
+              [(ngModel)]="hora_cliente"
+              placeholder="Selecione uma hora"></ion-datetime>
+            </ion-item>
+          </div>
+
+          <div>
+            <b>NÚCLEO URBANO INFORMAL</b>
+            <ion-item style="margin-bottom: 10px; border: 1px solid #b1b1b1; margin-top: 10px;">
+              <ion-label>Núcleo Urbado Informal</ion-label>
+              <ion-select [(ngModel)]="nucleo_urbano_informal">
+                <ion-option
+                *ngFor="let nucleo of nucleos">
+                {{nucleo.nome_nucleo}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+          </div>
+
+          <ion-grid style="margin-left: -10px; margin-bottom: 10px;">
+            <ion-row>
+              <ion-col col-6>
+                <b>QUADRA</b>
+                <ion-input type="text" style="margin-top: 10px;" placeholder="Quadra" class="input3" [(ngModel)]="quadra_cliente"></ion-input>
+              </ion-col>
+              <ion-col col-6>
+                <b>LOTE</b>
+                <ion-input type="text" style="margin-top: 10px;" placeholder="Lote" class="input3" [(ngModel)]="lote_cliente"></ion-input>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        <div style="margin-bottom: 27px;">
+         <b>ENDEREÇO</b>
+         <ion-input type="text" style="margin-top: 10px;" placeholder="Endereço" class="input3" [(ngModel)]="endereco_cliente"></ion-input>
+        </div>
+
+       <div style="margin-bottom: 27px;">
+        <b>INSCRIÇÃO IMOBILIÁRIA</b>
+        <ion-input type="text" style="margin-top: 10px;" placeholder="Inscrição Imobiliária" class="input3" [(ngModel)]="inscricao_imobiliaria"></ion-input>
+       </div>
+
+       <b>UNIDADES NO MESMO LOTE DO MESMO PROPRIETÁRIO</b><br>
+
+            <select id="status" name="status" onChange="mostrar(this.value);" class="select1">
+              <option value="unidade1">1 Unidade</option>
+              <option value="unidade2">2 Unidades</option>
+              <option value="unidade3">3 Unidades</option>
+              <option value="unidade4">4 Unidades</option>
+              <option value="unidade5">5 Unidades</option>
+              <option value="unidade6">6 Unidades</option>
+              <option value="unidade7">7 Unidades</option>
+              <option value="unidade8">8 Unidades</option>
+              <option value="unidade9">9 Unidades</option>
+              <option value="unidade10">10 Unidades</option>
+           </select>
+
+
+        <div style="margin-bottom: 27px;" id="unidade1">
+          <b>1º UNIDADE CONSTRUÍDA</b>
+          <ion-input type="tel" style="margin-top: 10px;" placeholder="1º Unidade construida" class="input3" [(ngModel)]="unidade_contruida1"></ion-input>
+        </div>
+
+        <div style="margin-bottom: 27px; display: none;" id="unidade2">
+          <b>2º UNIDADE CONSTRUÍDA</b>
+          <ion-input type="tel" style="margin-top: 10px;" placeholder="2º Unidade construida" class="input3" [(ngModel)]="unidade_contruida2"></ion-input>
+        </div>
+
+        <div style="margin-bottom: 27px; display: none;" id="unidade3">
+          <b>3º UNIDADE CONSTRUÍDA</b>
+          <ion-input type="tel" style="margin-top: 10px;" placeholder="3º Unidade construida" class="input3" [(ngModel)]="unidade_contruida3"></ion-input>
+        </div>
+
+        <div style="margin-bottom: 27px; display: none;" id="unidade4">
+          <b>4º UNIDADE CONSTRUÍDA</b>
+          <ion-input type="tel" style="margin-top: 10px;" placeholder="4º Unidade construida" class="input3" [(ngModel)]="unidade_contruida4"></ion-input>
+        </div>
+
+        <div style="margin-bottom: 27px; display: none;" id="unidade5">
+          <b>5º UNIDADE CONSTRUÍDA</b>
+          <ion-input type="tel" style="margin-top: 10px;" placeholder="5º Unidade construida" class="input3" [(ngModel)]="unidade_contruida5"></ion-input>
+        </div>
+
+        <div style="margin-bottom: 27px; display: none;" id="unidade6">
+          <b>6º UNIDADE CONSTRUÍDA</b>
+          <ion-input type="tel" style="margin-top: 10px;" placeholder="6º Unidade construida" class="input3" [(ngModel)]="unidade_contruida6"></ion-input>
+        </div>
+
+        <div style="margin-bottom: 27px; display: none;" id="unidade7">
+          <b>7º UNIDADE CONSTRUÍDA</b>
+          <ion-input type="tel" style="margin-top: 10px;" placeholder="7º Unidade construida" class="input3" [(ngModel)]="unidade_contruida7"></ion-input>
+        </div>
+
+        <div style="margin-bottom: 27px; display: none;" id="unidade8">
+          <b>8º UNIDADE CONSTRUÍDA</b>
+          <ion-input type="tel" style="margin-top: 10px;" placeholder="8º Unidade construida" class="input3" [(ngModel)]="unidade_contruida8"></ion-input>
+        </div>
+
+        <div style="margin-bottom: 27px; display: none;" id="unidade9">
+          <b>9º UNIDADE CONSTRUÍDA</b>
+          <ion-input type="tel" style="margin-top: 10px;" placeholder="9º Unidade construida" class="input3" [(ngModel)]="unidade_contruida9"></ion-input>
+       </div>
+
+        <div style="margin-bottom: 27px; display: none;" id="unidade10">
+          <b>10º UNIDADE CONSTRUÍDA</b>
+          <ion-input type="tel" style="margin-top: 10px;" placeholder="10º Unidade construida" class="input3" [(ngModel)]="unidade_contruida10"></ion-input>
+       </div>
+
+
+       <div style="margin-bottom: 27px;">
+        <b>ENDEREÇO DO PROPRIETÁRIO/POSSEIRO/DETENTOR</b>
+        <ion-input type="text" style="margin-top: 10px;" placeholder="Endereço" class="input3" [(ngModel)]="endereco_cliente2"></ion-input>
+      </div>
+
+      <div style="margin-bottom: 27px;">
+        <b>E-MAIL</b>
+        <ion-input type="mail" style="margin-top: 10px;" placeholder="E-mail" class="input3" [(ngModel)]="email_cliente"></ion-input>
+       </div>
+
+       <div style="margin-bottom: 27px;">
+        <b>TELEFONE</b>
+        <ion-input type="tel" [brmasker]="{mask:'(00)00000-0000', len:14}" style="margin-top: 10px;" placeholder="Telefone" class="input3" [(ngModel)]="telefone_cliente"></ion-input>
+       </div>
+
+      <div style="margin-bottom: 27px;">
+        <b>OBSERVAÇÕES</b>
+        <ion-textarea placeholder="Observações" style="margin-top: 10px;" [(ngModel)]="observacoes_cliente" class="input4"></ion-textarea>
+      </div>
+
+          <div>
+            <b>STATUS DO LOTE</b>
+            <ion-item style="margin-bottom: 10px; border: 1px solid #b1b1b1; margin-top: 10px;">
+              <ion-label>Status do Lote</ion-label>
+              <ion-select [(ngModel)]="status_lote_cliente">
+                <ion-option
+                *ngFor="let statu of status">
+                {{statu.nome_status}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+          </div>
+
+        <div class="botoes">
+          <button ion-button round color="tema" class="btn" (click)="passo1()">Próximo</button>
+        </div>
+
+  </div>
+
+</ion-content>

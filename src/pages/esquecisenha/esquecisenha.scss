@@ -1,0 +1,75 @@
+page-esquecisenha {
+
+  .conteudo{
+    background: #fff;
+    height: 100%;
+  }
+
+  .logo{
+    text-align: center;
+    background-color: #cfd8dc;
+    border-radius: 0 0 50% 50%;
+    padding: 40px;
+  }
+
+  .logo img{
+    width: 100%;
+    max-width: 130px;
+  }
+
+  .intro{
+    text-align: center;
+  }
+
+  .form{
+    padding: 0 30px;
+    margin-top: 40px;
+  }
+
+  .input-login{
+    border: 1px solid #878787 !important;
+    border-radius: 50px;
+    padding: 0 15px;
+    margin-bottom: 10px;
+  }
+
+  .list-ios .item-block .item-inner {
+    border-bottom: none !important;
+  }
+
+  .btn-login{
+    background: var(--tema) !important;
+    border-radius: 50px;
+    font-weight: 700;
+    -webkit-box-shadow: 2px 2px 7px rgba(50, 50, 50, 0.3);
+    -moz-box-shadow: 2px 2px 7px rgba(50, 50, 50, 0.3);
+    box-shadow: 2px 2px 7px rgba(50, 50, 50, 0.3);
+    height: 50px;
+  }
+
+  .esqueci{
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .esqueci span{
+    font-size: 16px;
+  }
+
+  .fixed-content{
+    margin-top: 0 !important;
+  }
+
+  .scroll-content{
+    margin-top: 0 !important;
+  }
+
+  ion-list{
+    margin-bottom: 0 !important;
+  }
+
+  .bar-button-default-ios{
+    color: #000 !important;
+  }
+
+}

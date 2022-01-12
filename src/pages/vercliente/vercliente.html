@@ -1,0 +1,413 @@
+<ion-header transparent no-shadow no-border>
+  <ion-navbar transparent no-shadow no-border>
+    <button ion-button menuToggle style="color: #000;">
+      <ion-icon name="menu" color="light" style="color: #000;"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="conteudo">
+
+    <div style="margin-bottom: 30px;">
+      <ion-segment [(ngModel)]="dados">
+        <ion-segment-button value="pessoais">
+          Dados
+        </ion-segment-button>
+        <ion-segment-button value="fotos">
+          Fotos
+        </ion-segment-button>
+        <ion-segment-button value="imovel">
+          Imóvel
+        </ion-segment-button>
+        <ion-segment-button value="outros">
+          Outros
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <div [ngSwitch]="dados">
+
+      <div *ngSwitchCase="'pessoais'">
+
+        <h4><hr class="hr1">DADOS CLIENTE</h4>
+
+        <div class="linha" *ngIf="post.nome_cliente">
+          <b>NOME:</b><br>
+          {{post.nome_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.entrevistador_cliente">
+          <b>ENTREVISTADOR:</b><br>
+          {{post.entrevistador_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.email_cliente">
+          <b>E-MAIL:</b><br>
+          {{post.email_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.telefone_cliente">
+          <b>TELEFONE:</b><br>
+          {{post.telefone_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.cpf_cliente">
+          <b>CPF:</b><br>
+          {{post.cpf_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.rg_cliente">
+          <b>RG:</b><br>
+          {{post.rg_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.orgao_emissor_cliente">
+          <b>ORGÃO EMISSOR:</b><br>
+          {{post.orgao_emissor_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.nascimento_cliente">
+          <b>DATA DE NASCIMENTO:</b><br>
+          {{post.nascimento_cliente | date:'dd/MM/yyyy'}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.profissao_cliente">
+          <b>PROFISSÃO:</b><br>
+          {{post.profissao_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.escolaridade_cliente">
+          <b>ESCOLARIDADE:</b><br>
+          {{post.escolaridade_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.estado_civil_cliente">
+          <b>ESTADO CIVIL:</b><br>
+          {{post.estado_civil_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.nacionalidade_cliente">
+          <b>NACIONALIDADE:</b><br>
+          {{post.nacionalidade_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.renda_cliente">
+          <b>RENDA:</b><br>
+          R${{post.renda_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.data_cliente">
+          <b>CLIENTE DESDE:</b><br>
+          {{post.data_cliente | date:'dd/MM/yyyy'}}<br><br>
+        </div>
+
+        <ion-item-divider></ion-item-divider>
+
+        <h4 style="padding-top: 15px;"><hr class="hr1">ENDEREÇO</h4>
+
+        <div class="linha" *ngIf="post.endereco_cliente">
+          <b>ENDEREÇO:</b><br>
+          {{post.endereco_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.endereco_cliente2">
+          <b>ENDEREÇO 2:</b><br>
+          {{post.endereco_cliente2}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.quadra_cliente">
+          <b>QUADRA:</b><br>
+          {{post.quadra_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.lote_cliente">
+          <b>LOTE:</b><br>
+          {{post.lote_cliente}}<br><br>
+        </div>
+
+        <button ion-button icon-start color="tema" (click)="mapa()">
+          <ion-icon name="navigate"></ion-icon>
+          Abrir Localização
+        </button>
+
+        <ion-item-divider></ion-item-divider>
+
+        <h4 style="padding-top: 15px;"><hr class="hr1">DADOS CONJUGE</h4>
+
+        <div class="linha" *ngIf="post.nome_conjuge_cliente">
+          <b>NOME CONJUGE:</b><br>
+          {{post.nome_conjuge_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.cpf_conju_cliente">
+          <b>CPF CONJUGE:</b><br>
+          {{post.cpf_conju_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.rg_conju_cliente">
+          <b>RG CONJUGE:</b><br>
+          {{post.rg_conju_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.nasci_conju_cliente">
+          <b>DATA NASCIMENTO CONJUGE:</b><br>
+          {{post.nasci_conju_cliente | date:'dd/MM/yyyy'}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.escol_conju_cliente">
+          <b>ESCOLARIDADE CONJUGE:</b><br>
+          {{post.escol_conju_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.contato_conju_cliente">
+          <b>CONTATO CONJUGE:</b><br>
+          {{post.contato_conju_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.renda_conj_cliente">
+          <b>RENDA CONJUGE:</b><br>
+          R${{post.renda_conj_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.renda_outros_cliente">
+          <b>OUTRAS RENDAS:</b><br>
+          R${{post.renda_outros_cliente}}<br><br>
+        </div>
+
+      </div>
+
+      <div *ngSwitchCase="'fotos'">
+
+        <div class="img5" *ngIf="post.img_rg_frente_cliente">
+          <span>RG FRENTE</span>
+          <img src="{{post.img_rg_frente_cliente}}" class="img-doc" imageViewer >
+        </div>
+
+        <div class="img5" *ngIf="post.img_rg_tras_cliente">
+          <span>RG TRÁS</span>
+          <img src="{{post.img_rg_tras_cliente}}" class="img-doc" imageViewer>
+        </div>
+
+        <div class="img5" *ngIf="post.img_rg_frente_conjuge">
+          <span>RG CONJUGE FRENTE</span>
+          <img src="{{post.img_rg_frente_conjuge}}" class="img-doc" imageViewer>
+        </div>
+
+        <div class="img5" *ngIf="post.img_rg_tras_conjuge">
+          <span>RG CONJUGE TRÁS</span>
+          <img src="{{post.img_rg_tras_conjuge}}" class="img-doc" imageViewer>
+        </div>
+
+        <div class="img5" *ngIf="post.img_cert_casa_cliente">
+          <span>CERTIDÃO DE CASAMENTO</span>
+          <img src="{{post.img_cert_casa_cliente}}" class="img-doc" imageViewer>
+        </div>
+
+        <div class="img5" *ngIf="post.img_pact_anti_cliente">
+          <span>PÁCTO ANTENUPCIAL</span>
+          <img src="{{post.img_pact_anti_cliente}}" class="img-doc" imageViewer>
+        </div>
+
+        <div class="img5" *ngIf="post.img_comp_end_cliente">
+          <span>COMPROVANTE DE ENDEREÇO</span>
+          <img src="{{post.img_comp_end_cliente}}" class="img-doc" imageViewer>
+        </div>
+
+        <div class="img5" *ngIf="post.img_comp_rend_cliente">
+          <span>COMPROVANTE DE RENDIMENTOS</span>
+          <img src="{{post.img_comp_rend_cliente}}" class="img-doc" imageViewer>
+        </div>
+
+        <div class="img5" *ngIf="post.img_doc_imovel_cliente">
+          <span>DOCUMENTO DO IMÓVEL</span>
+          <img src="{{post.img_doc_imovel_cliente}}" class="img-doc" imageViewer>
+        </div>
+
+        <div class="img5" *ngIf="post.img_iptu_cliente">
+          <span>IPTU</span>
+          <img src="{{post.img_iptu_cliente}}" class="img-doc" imageViewer>
+        </div>
+
+        <div class="img5" *ngIf="post.img_facha_cliente">
+          <span>FACHADA DO IMÓVEL</span>
+          <img src="{{post.img_facha_cliente}}" class="img-doc" imageViewer>
+        </div>
+
+      </div>
+
+      <div *ngSwitchCase="'imovel'">
+
+        <div class="linha" *ngIf="post.nucleo_urbano_informal">
+          <b>Núcleo urbano Informal</b><br>
+          {{post.nucleo_urbano_informal}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.inscricao_imobiliaria">
+          <b>Inscrição imobiliária:</b><br>
+          {{post.inscricao_imobiliaria}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.unidade_contruida1">
+          <b>Unidade 1 Metros por quadrado</b><br>
+          {{post.unidade_contruida1}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.unidade_contruida2">
+          <b>Unidade 2 Metros por quadrado</b><br>
+          {{post.unidade_contruida2}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.unidade_contruida3">
+          <b>Unidade 3 Metros por quadrado</b><br>
+          {{post.unidade_contruida3}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.unidade_contruida4">
+          <b>Unidade 4 Metros por quadrado</b><br>
+          {{post.unidade_contruida4}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.unidade_contruida5">
+          <b>Unidade 5 Metros por quadrado</b><br>
+          {{post.unidade_contruida5}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.unidade_contruida6">
+          <b>Unidade 6 Metros por quadrado</b><br>
+          {{post.unidade_contruida6}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.unidade_contruida7">
+          <b>Unidade 7 Metros por quadrado</b><br>
+          {{post.unidade_contruida7}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.unidade_contruida8">
+          <b>Unidade 8 Metros por quadrado</b><br>
+          {{post.unidade_contruida8}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.unidade_contruida9">
+          <b>Unidade 9 Metros por quadrado</b><br>
+          {{post.unidade_contruida9}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.unidade_contruida10">
+          <b>Unidade 10 Metros por quadrado</b><br>
+          {{post.unidade_contruida10}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.status_lote_cliente">
+          <b>Status do lote</b><br>
+          {{post.status_lote_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.infra_agua_cesan_cliente">
+          <b>INFRAESTRUTURA DE ÁGUA CESAN:</b><br>
+          {{post.infra_agua_cesan_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.infra_energia_edp_cliente">
+          <b>INFRAESTRUTURA DE ENERGIA EDP:</b><br>
+          {{post.infra_energia_edp_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.infra_esgoto_cliente">
+          <b>INFRAESTRUTURA DE ESGOTO:</b><br>
+          {{post.infra_esgoto_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.infra_calcamento_cliente">
+          <b>INFRAESTRUTURA DE CALÇAMENTO:</b><br>
+          {{post.infra_calcamento_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.imovel_regularizado_cliente">
+          <b>O IMÓVEL É REGULARIZADO?</b><br>
+          {{post.imovel_regularizado_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.tipo_imovel_cliente">
+          <b>TIPO DE IMÓVEL:</b><br>
+          {{post.tipo_imovel_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.matricula_imovel_cliente">
+          <b>MATRÍCULA DO IMÓVEL:</b><br>
+          {{post.matricula_imovel_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.doc_imovel_cliente">
+          <b>DOCUMENTO DO IMÓVEL:</b><br>
+          {{post.doc_imovel_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.doc_imovel_outro_cliente">
+          <b>OUTRO DOCUMENTO DO IMÓVEL:</b><br>
+          {{post.doc_imovel_outro_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.area_contru_imovel_cliente">
+          <b>ÁREA DE CONTRUÇÃO DO IMÓVEL:</b><br>
+          {{post.area_contru_imovel_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.contru_regular_cliente">
+          <b>CONTRUÇÃO REGULAR DO IMÓVEL:</b><br>
+          {{post.contru_regular_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.imovel_e_cliente">
+          <b>O IMÓVEL É:</b><br>
+          {{post.imovel_e_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.valor_atribu_imovel_cliente">
+          <b>VALOR ATRIBUÍDO AO IMÓVEL:</b><br>
+          R${{post.valor_atribu_imovel_cliente}}<br><br>
+        </div>
+
+      </div>
+
+      <div *ngSwitchCase="'outros'">
+
+        <div class="linha" *ngIf="post.revista_cliente">
+          <b>A visita é uma revista?</b><br>
+          {{post.revista_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.data_cliente">
+          <b>Data da visita:</b><br>
+          {{post.data_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.hora_cliente">
+          <b>Hora da visita:</b><br>
+          {{post.hora_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.prog_social_cliente">
+          <b>PARTICIPA DE ALGUM PROGRAMA SOCIAL?</b><br>
+          {{post.prog_social_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.receb_valor_prog_social_cliente">
+          <b>RECEBE VALOR DE PROGRAMA SOCIAL?</b><br>
+          {{post.receb_valor_prog_social_cliente}}<br><br>
+        </div>
+
+        <div class="linha" *ngIf="post.valor_prog_social_cliente">
+          <b>VALOR RECEBIDO DE PROGRAMA SOCIAL:</b><br>
+          {{post.valor_prog_social_cliente}}<br><br>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</ion-content>

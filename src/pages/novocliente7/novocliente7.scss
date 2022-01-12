@@ -1,0 +1,152 @@
+page-novocliente7 {
+
+  .item .item-block .item-md .item-datetime {
+    margin-left: 0 !important;
+  }
+
+  .item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: none !important;
+  }
+
+  .fixed-content {
+    margin-top: 0 !important;
+  }
+
+  .scroll-content{
+    margin-top: 0 !important;
+  }
+
+  .conteudo {
+    padding: 20px 30px 40px 30px;
+  }
+
+  .conteudo h3{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .input3{
+    border: 1px solid #b1b1b1;
+    padding-left: 15px;
+    margin-bottom: 10px;
+  }
+
+  .titulo4{
+    text-align: center;
+    background-color: var(--tema) !important;
+    padding: 50px;
+    border-radius: 0 0 50%;
+  }
+
+  .titulo4 h5{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .input4{
+    border: 1px solid #b1b1b1;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    height: 90px;
+  }
+
+  .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+    display: none;
+  }
+
+  .sair {
+    margin-left: 10px;
+  }
+
+  .btn{
+    height: 45px;
+  }
+
+  .botoes {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .botoes2{
+    margin-top: 20px;
+  }
+
+  .titulo4{
+    text-align: center;
+    background-color: var(--tema) !important;
+    padding: 50px;
+    border-radius: 0 0 50%;
+  }
+
+  .titulo4 h3{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .select1{
+    margin-top: 10px;
+    margin-bottom: 27px;
+    width: 100%;
+    height: 42px;
+    padding: 0 15px;
+    border: 1px solid #b1b1b1;
+  }
+
+  .img-mini{
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+    max-width: 200px;
+    background-position: center center;
+    background-size: cover;
+    display: block;
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
+  .img-mini2{
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+    max-width: 200px;
+    background-position: center center;
+    background-size: cover;
+    display: block;
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
+  .imagens{
+    position: relative;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .none{
+    display: none;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  .icone-camera{
+    font-size: 30px;
+    position: absolute;
+    z-index: 99999;
+    top: 45%;
+    left: 43.3%;
+    background-color: #fff;
+    padding: 5px 8px;
+    border-radius: 50%;
+  }
+
+}

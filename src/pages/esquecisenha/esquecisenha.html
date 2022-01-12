@@ -1,0 +1,37 @@
+<ion-header transparent no-shadow no-border>
+  <ion-navbar transparent no-shadow no-border>
+    <button ion-button menuToggle style="color: #000;">
+      <ion-icon name="menu" color="light" style="color: #000;"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="conteudo">
+
+      <div class="logo">
+        <img src="../../assets/imgs/logo2.png">
+      </div>
+
+      <div class="form">
+
+        <div class="intro">
+          <p>Insira seu e-mail para receber um senha provisória em seu e-mail</p>
+        </div>
+
+        <ion-list>
+
+          <ion-item class="input-login">
+            <ion-input type="text" placeholder="E-mail" [(ngModel)]="email_usuario"></ion-input>
+          </ion-item>
+
+        </ion-list>
+
+        <button ion-button full class="btn-login" (click)="recuperar()">Recuperar</button>
+
+      </div>
+
+  </div>
+
+  </ion-content>

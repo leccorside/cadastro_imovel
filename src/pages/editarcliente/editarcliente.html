@@ -1,0 +1,528 @@
+<ion-header transparent no-shadow no-border>
+  <ion-navbar transparent no-shadow no-border>
+    <button ion-button menuToggle style="color: #000;">
+      <ion-icon name="menu" color="light" style="color: #000;"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="conteudo">
+
+    <div style="margin-bottom: 30px;">
+      <ion-segment [(ngModel)]="dados">
+        <ion-segment-button value="pessoais">
+          Dados
+        </ion-segment-button>
+        <ion-segment-button value="fotos">
+          Fotos
+        </ion-segment-button>
+        <ion-segment-button value="imovel">
+          Imóvel
+        </ion-segment-button>
+        <ion-segment-button value="outros">
+          Outros
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+
+    <ion-input type="hidden" placeholder="ESCOLARIDADE" class="input-3 hidden" value="{{post.escolaridade_cliente}}" [(ngModel)]="escolaridade_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="ESTADO CIVIL" class="input-3 hidden" value="{{post.estado_civil_cliente}}" [(ngModel)]="estado_civil_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="ESCOLARIDADE CONJUGE" class="input-3 hidden" value="{{post.escol_conju_cliente}}" [(ngModel)]="escol_conju_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="NÚCLEO URBANO" class="input-3 hidden" value="{{post.nucleo_urbano_informal}}" [(ngModel)]="nucleo_urbano_informal"></ion-input>
+    <ion-input type="hidden" placeholder="STATUS LOTE" class="input-3 hidden" value="{{post.status_lote_cliente}}" [(ngModel)]="status_lote_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="INFRA AGUA" class="input-3 hidden" value="{{post.infra_agua_cesan_cliente}}" [(ngModel)]="infra_agua_cesan_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="INFRA ENERG" class="input-3 hidden" value="{{post.infra_energia_edp_cliente}}" [(ngModel)]="infra_energia_edp_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="INFRA ESCOTO" class="input-3 hidden" value="{{post.infra_esgoto_cliente}}" [(ngModel)]="infra_esgoto_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="INFRA CALCA" class="input-3 hidden" value="{{post.infra_calcamento_cliente}}" [(ngModel)]="infra_calcamento_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="IMOVEL REG" class="input-3 hidden" value="{{post.imovel_regularizado_cliente}}" [(ngModel)]="imovel_regularizado_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="REVISTA" class="input-3 hidden" value="{{post.revista_cliente}}" [(ngModel)]="revista_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="PROGRAMA SOCIAL" class="input-3 hidden" value="{{post.prog_social_cliente}}" [(ngModel)]="prog_social_cliente"></ion-input>
+    <ion-input type="hidden" placeholder="RECEBE VALOR SOCIAL" class="input-3 hidden" value="{{post.receb_valor_prog_social_cliente}}" [(ngModel)]="receb_valor_prog_social_cliente"></ion-input>
+
+
+
+    <div [ngSwitch]="dados">
+
+      <div *ngSwitchCase="'pessoais'">
+
+        <h4><hr class="hr1">DADOS CLIENTE</h4>
+
+        <ion-input type="text" placeholder="Nome" class="input3"
+        value="{{post.nome_cliente}}"
+        [(ngModel)]="nome_cliente"></ion-input>
+
+        <ion-input type="mail" placeholder="E-mail" class="input3"
+        value="{{post.email_cliente}}"
+        [(ngModel)]="email_cliente"></ion-input>
+
+        <ion-input type="tel" placeholder="Telefone" class="input3"
+        value="{{post.telefone_cliente}}"
+        [(ngModel)]="telefone_cliente"
+        [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input>
+
+        <ion-input type="tel" placeholder="CPF" class="input3"
+        value="{{post.cpf_cliente}}"
+        [(ngModel)]="cpf_cliente"
+        [brmasker]="{mask:'000.000.000-00', len:14}"></ion-input>
+
+        <ion-input type="text" placeholder="RG" class="input3"
+        value="{{post.rg_cliente}}"
+        [(ngModel)]="rg_cliente"></ion-input>
+
+        <ion-input type="text" placeholder="ORGÃO EMISSOR" class="input3"
+        value="{{post.orgao_emissor_cliente}}"
+        [(ngModel)]="orgao_emissor_cliente"></ion-input>
+
+        <!--<div class="visita" style="margin-bottom: 11px;">
+          <ion-item style="border-radius: 50px; border: 1px solid #b1b1b1;">
+            <ion-label>Nascimento</ion-label>
+            <ion-datetime
+              displayFormat="DD/MM/YYYY"
+              cancelText="Cancelar"
+              doneText="Ok"
+              pickerFormat="DD/MM/YYYY"
+              value="{{post.nascimento_cliente}}"
+              (ionChange)="parseDate()"
+              [(ngModel)]="nascimento_cliente"
+              display-timezone="utc"
+              placeholder="Selecione uma data"></ion-datetime>
+          </ion-item>
+        </div>-->
+
+        <ion-input type="text" placeholder="PROFISSÃO" class="input3"
+        value="{{post.profissao_cliente}}"
+        [(ngModel)]="profissao_cliente"></ion-input>
+
+        <div>
+          <ion-item style="margin-bottom: 10px; border: 1px solid #b1b1b1; margin-top: 10px;">
+            <ion-label>Escolaridade</ion-label>
+            <ion-select [(ngModel)]="escolaridade_cliente">
+              <ion-option
+              value="{{escolaridade.nome_escolaridade}}"
+              *ngFor="let escolaridade of escolaridades">
+              {{escolaridade.nome_escolaridade}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div>
+          <ion-item style="margin-bottom: 10px; border: 1px solid #b1b1b1; margin-top: 10px;">
+            <ion-label>Estado civil</ion-label>
+            <ion-select [(ngModel)]="estado_civil_cliente">
+              <ion-option
+              value="{{civil.nome_civil}}"
+              *ngFor="let civil of civis">
+              {{civil.nome_civil}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <ion-input type="text" placeholder="NACIONALIDADE" class="input3"
+        value="{{post.nacionalidade_cliente}}"
+        [(ngModel)]="nacionalidade_cliente"></ion-input>
+
+        <ion-input type="tel" placeholder="RENDA" class="input3"
+        value="{{post.renda_cliente}}"
+        [brmasker]="{money: true}"
+        [(ngModel)]="renda_cliente"></ion-input>
+
+        <h4><hr class="hr1">ENDEREÇO</h4>
+
+        <ion-input type="text" placeholder="ENDEREÇO" class="input3"
+        value="{{post.endereco_cliente}}"
+        [(ngModel)]="endereco_cliente"></ion-input>
+
+        <ion-input type="text" placeholder="ENDEREÇO 2" class="input3"
+        value="{{post.endereco_cliente2}}"
+        [(ngModel)]="endereco_cliente2"></ion-input>
+
+        <ion-input type="text" placeholder="QUADRA" class="input3"
+        value="{{post.quadra_cliente}}"
+        [(ngModel)]="quadra_cliente"></ion-input>
+
+        <ion-input type="text" placeholder="LOTE" class="input3"
+        value="{{post.lote_cliente}}"
+        [(ngModel)]="lote_cliente"></ion-input>
+
+        <button ion-button icon-start color="tema" (click)="editarLocalizacao()">
+          <ion-icon name="navigate"></ion-icon>
+          Editar Localização
+        </button>
+
+        <h4><hr class="hr1">DADOS CONJUGE</h4>
+
+        <ion-input type="text" placeholder="NOME" class="input3"
+        value="{{post.nome_conjuge_cliente}}"
+        [(ngModel)]="nome_conjuge_cliente"></ion-input>
+
+        <ion-input type="tel" placeholder="CPF" class="input3"
+        value="{{post.cpf_conju_cliente}}"
+        [(ngModel)]="cpf_conju_cliente"
+        [brmasker]="{mask:'000.000.000-00', len:14}"></ion-input>
+
+        <ion-input type="text" placeholder="RG" class="input3"
+        value="{{post.rg_conju_cliente}}"
+        [(ngModel)]="rg_conju_cliente"></ion-input>
+
+        <ion-input type="text" placeholder="PROFISSÃO" class="input3"
+        value="{{post.profi_conju_cliente}}"
+        [(ngModel)]="profi_conju_cliente"></ion-input>
+
+        <div>
+          <ion-item style="margin-bottom: 10px; border: 1px solid #b1b1b1; margin-top: 10px;">
+            <ion-label>Escolaridade</ion-label>
+            <ion-select [(ngModel)]="escol_conju_cliente">
+              <ion-option
+              value="{{escolaridade.nome_escolaridade}}"
+              *ngFor="let escolaridade of escolaridades">
+              {{escolaridade.nome_escolaridade}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <ion-input type="tel" placeholder="RENDA" class="input3"
+        value="{{post.renda_conj_cliente}}"
+        [brmasker]="{money: true}"
+        [(ngModel)]="renda_conj_cliente"></ion-input>
+
+        <ion-input type="tel" placeholder="Telefone" class="input3"
+        value="{{post.contato_conju_cliente}}"
+        [(ngModel)]="contato_conju_cliente"
+        [brmasker]="{mask:'(00)00000-0000', len:14}"></ion-input>
+
+
+        <button ion-button round block color="tema" class="btn" (click)="salvar1()" style="margin-top: 25px;">Salvar</button><br>
+
+      </div>
+
+      <div *ngSwitchCase="'fotos'">
+
+        <div class="imagens" *ngIf="post.img_rg_frente_cliente">
+          <span>RG Frente</span><br>
+          <img src="{{post.img_rg_frente_cliente}}" [class]="className1">
+          <img src="{{base64Image1}}" [class]="className2">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem1()"></ion-icon>
+        </div>
+
+        <div class="imagens" *ngIf="post.img_rg_tras_cliente">
+          <span>RG Trás</span><br>
+          <img src="{{post.img_rg_tras_cliente}}" [class]="className3">
+          <img src="{{base64Image2}}" [class]="className4">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem2()"></ion-icon>
+        </div>
+
+        <div class="imagens" *ngIf="post.img_rg_frente_conjuge">
+          <span>RG Frente Conjuge</span><br>
+          <img src="{{post.img_rg_frente_conjuge}}" [class]="className5">
+          <img src="{{base64Image3}}" [class]="className6">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem3()"></ion-icon>
+        </div>
+
+        <div class="imagens" *ngIf="post.img_rg_tras_conjuge">
+          <span>RG Trás Conjuge</span><br>
+          <img src="{{post.img_rg_tras_conjuge}}" [class]="className7">
+          <img src="{{base64Image4}}" [class]="className8">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem4()"></ion-icon>
+        </div>
+
+        <div class="imagens" *ngIf="post.img_cert_casa_cliente">
+          <span>Certidão de Casamento</span><br>
+          <img src="{{post.img_cert_casa_cliente}}" [class]="className9">
+          <img src="{{base64Image5}}" [class]="className10">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem5()"></ion-icon>
+        </div>
+
+        <div class="imagens" *ngIf="post.img_pact_anti_cliente">
+          <span>Pacto Antenupcial</span><br>
+          <img src="{{post.img_pact_anti_cliente}}" [class]="className11">
+          <img src="{{base64Image6}}" [class]="className12">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem6()"></ion-icon>
+        </div>
+
+        <div class="imagens" *ngIf="post.img_comp_end_cliente">
+          <span>Comprovante de Endereço</span><br>
+          <img src="{{post.img_comp_end_cliente}}" [class]="className13">
+          <img src="{{base64Image7}}" [class]="className14">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem7()"></ion-icon>
+        </div>
+
+        <div class="imagens" *ngIf="post.img_comp_rend_cliente">
+          <span>Comprovante de Rendimentos</span><br>
+          <img src="{{post.img_comp_rend_cliente}}" [class]="className15">
+          <img src="{{base64Image8}}" [class]="className16">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem8()"></ion-icon>
+        </div>
+
+        <div class="imagens" *ngIf="post.img_doc_imovel_cliente">
+          <span>Documentos do Imóvel</span><br>
+          <img src="{{post.img_doc_imovel_cliente}}" [class]="className17">
+          <img src="{{base64Image9}}" [class]="className18">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem9()"></ion-icon>
+        </div>
+
+        <div class="imagens" *ngIf="post.img_iptu_cliente">
+          <span>IPTU</span><br>
+          <img src="{{post.img_iptu_cliente}}" [class]="className19">
+          <img src="{{base64Image10}}" [class]="className20">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem10()"></ion-icon>
+        </div>
+
+        <div class="imagens" *ngIf="post.img_facha_cliente">
+          <span>Imagem da Fachada</span><br>
+          <img src="{{post.img_facha_cliente}}" [class]="className21">
+          <img src="{{base64Image11}}" [class]="className22">
+          <ion-icon name="camera" class="icone-camera" color="tema" (click)="escolherImagem11()"></ion-icon>
+        </div>
+
+      </div>
+
+      <div *ngSwitchCase="'imovel'">
+
+        <div>
+          <span class="span1">Núcleo Urbado Informal</span>
+          <ion-item style="margin-bottom: 18px; border: 1px solid #b1b1b1;">
+            <ion-label>Núcleo Urbado Informal</ion-label>
+            <ion-select [(ngModel)]="nucleo_urbano_informal">
+              <ion-option
+              value="{{nucleo.nome_nucleo}}"
+              *ngFor="let nucleo of nucleos">
+              {{nucleo.nome_nucleo}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div>
+          <span class="span1">Status do Lote</span>
+          <ion-item style="margin-bottom: 18px; border: 1px solid #b1b1b1;">
+            <ion-label>Status do Lote</ion-label>
+            <ion-select [(ngModel)]="status_lote_cliente">
+              <ion-option
+              value="{{statu.nome_status}}"
+              *ngFor="let statu of status">
+              {{statu.nome_status}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <b>Inscrição Imobiliária</b>
+        <ion-input type="text" placeholder="INSCRIÇÃO IMOBILIÁRIA" class="input3"
+        style="margin-bottom: 18px;"
+        value="{{post.inscricao_imobiliaria}}"
+        [(ngModel)]="inscricao_imobiliaria"></ion-input>
+
+        <div *ngIf="post.unidade_contruida1" style="margin-bottom: 18px;">
+          <b>1 Unidade (Metros Quadrado)</b>
+          <ion-input type="text" placeholder="UNIDADE 1" class="input3"
+          value="{{post.unidade_contruida1}}"
+          [(ngModel)]="unidade_contruida1"></ion-input>
+        </div>
+
+        <div *ngIf="post.unidade_contruida2">
+          <b>2 Unidade (Metros Quadrado)</b>
+          <ion-input type="text" placeholder="UNIDADE 2" class="input3"
+          value="{{post.unidade_contruida2}}"
+          [(ngModel)]="unidade_contruida2"></ion-input>
+        </div>
+
+        <div *ngIf="post.unidade_contruida3">
+          <b>3 Unidade (Metros Quadrado)</b>
+          <ion-input type="text" placeholder="UNIDADE 3" class="input3"
+          value="{{post.unidade_contruida3}}"
+          [(ngModel)]="unidade_contruida3"></ion-input>
+        </div>
+
+        <div *ngIf="post.unidade_contruida4">
+          <b>4 Unidade (Metros Quadrado)</b>
+          <ion-input type="text" placeholder="UNIDADE 4" class="input3"
+          value="{{post.unidade_contruida4}}"
+          [(ngModel)]="unidade_contruida4"></ion-input>
+        </div>
+
+        <div *ngIf="post.unidade_contruida5">
+          <b>5 Unidade (Metros Quadrado)</b>
+          <ion-input type="text" placeholder="UNIDADE 5" class="input3"
+          value="{{post.unidade_contruida5}}"
+          [(ngModel)]="unidade_contruida5"></ion-input>
+        </div>
+
+        <div *ngIf="post.unidade_contruida6">
+          <b>6 Unidade (Metros Quadrado)</b>
+          <ion-input type="text" placeholder="UNIDADE 6" class="input3"
+          value="{{post.unidade_contruida6}}"
+          [(ngModel)]="unidade_contruida6"></ion-input>
+        </div>
+
+        <div *ngIf="post.unidade_contruida7">
+          <b>7 Unidade (Metros Quadrado)</b>
+          <ion-input type="text" placeholder="UNIDADE 7" class="input3"
+          value="{{post.unidade_contruida7}}"
+          [(ngModel)]="unidade_contruida7"></ion-input>
+        </div>
+
+        <div *ngIf="post.unidade_contruida8">
+          <b>8 Unidade (Metros Quadrado)</b>
+          <ion-input type="text" placeholder="UNIDADE 8" class="input3"
+          value="{{post.unidade_contruida8}}"
+          [(ngModel)]="unidade_contruida8"></ion-input>
+        </div>
+
+        <div *ngIf="post.unidade_contruida9">
+          <b>9 Unidade (Metros Quadrado)</b>
+          <ion-input type="text" placeholder="UNIDADE 9" class="input3"
+          value="{{post.unidade_contruida9}}"
+          [(ngModel)]="unidade_contruida9"></ion-input>
+        </div>
+
+        <div *ngIf="post.unidade_contruida10">
+          <b>10 Unidade (Metros Quadrado)</b>
+          <ion-input type="text" placeholder="UNIDADE 10" class="input3"
+          value="{{post.unidade_contruida10}}"
+          [(ngModel)]="unidade_contruida10"></ion-input>
+        </div>
+
+        <div>
+          <span class="span1">Infraestrutura - Água CESAN</span>
+          <ion-item style="margin-bottom: 15px; border: 1px solid #b1b1b1;">
+            <ion-label>Infraestrutura - Água CESAN</ion-label>
+            <ion-select [(ngModel)]="infra_agua_cesan_cliente">
+              <ion-option
+              value="{{statu2.nome_status}}"
+              *ngFor="let statu2 of status2">
+              {{statu2.nome_status}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div>
+          <span class="span1">Infraestrutura - Energia EDP</span>
+          <ion-item style="margin-bottom: 15px; border: 1px solid #b1b1b1;">
+            <ion-label>Infraestrutura - Energia EDP</ion-label>
+            <ion-select [(ngModel)]="infra_energia_edp_cliente">
+              <ion-option
+              value="{{statu2.nome_status}}"
+              *ngFor="let statu2 of status2">
+              {{statu2.nome_status}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div>
+          <span class="span1">Infraestrutura - Esgoto Sanitário</span>
+          <ion-item style="margin-bottom: 15px; border: 1px solid #b1b1b1;">
+            <ion-label>Infraestrutura - Esgoto Sanitário</ion-label>
+            <ion-select [(ngModel)]="infra_esgoto_cliente">
+              <ion-option
+              value="{{statu3.nome_status}}"
+              *ngFor="let statu3 of status3">
+              {{statu3.nome_status}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div>
+          <span class="span1">Infraestrutura - Calçamento</span>
+          <ion-item style="margin-bottom: 15px; border: 1px solid #b1b1b1;">
+            <ion-label>Infraestrutura - Calçamento</ion-label>
+            <ion-select [(ngModel)]="infra_calcamento_cliente">
+              <ion-option
+              value="{{statu4.nome_status}}"
+              *ngFor="let statu4 of status4">
+              {{statu4.nome_status}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div>
+          <span class="span1">O imóvel é Regularizado?</span>
+          <ion-item style="margin-bottom: 15px; border: 1px solid #b1b1b1;">
+            <ion-label>O imóvel é Regularizado</ion-label>
+            <ion-select [(ngModel)]="imovel_regularizado_cliente">
+              <ion-option
+              value="{{statu4.nome_status}}"
+              *ngFor="let statu4 of status4">
+              {{statu4.nome_status}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <button ion-button round block color="tema" class="btn" (click)="salvarimovel()" style="margin-top: 25px;">Salvar</button><br>
+
+
+      </div>
+
+      <div *ngSwitchCase="'outros'">
+
+        <div>
+          <span class="span1">A visita é uma revisão?</span>
+          <ion-item style="margin-bottom: 15px; border: 1px solid #b1b1b1;">
+            <ion-label>A visita é uma revisão?</ion-label>
+            <ion-select [(ngModel)]="revista_cliente">
+              <ion-option
+              value="{{statu4.nome_status}}"
+              *ngFor="let statu4 of status4">
+              {{statu4.nome_status}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div>
+          <span class="span1">Participa de Algum Programa Social?</span>
+          <ion-item style="margin-bottom: 15px; border: 1px solid #b1b1b1;">
+            <ion-label>Participa de Algum Programa Social?</ion-label>
+            <ion-select [(ngModel)]="prog_social_cliente">
+              <ion-option
+              value="{{statu4.nome_status}}"
+              *ngFor="let statu4 of status4">
+              {{statu4.nome_status}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div>
+          <span class="span1">Recebe Valor de Programa Social?</span>
+          <ion-item style="margin-bottom: 15px; border: 1px solid #b1b1b1;">
+            <ion-label>Recebe Valor de Programa Social?</ion-label>
+            <ion-select [(ngModel)]="receb_valor_prog_social_cliente">
+              <ion-option
+              value="{{statu4.nome_status}}"
+              *ngFor="let statu4 of status4">
+              {{statu4.nome_status}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <b>Valor Recebido de Programa Social</b>
+        <ion-input type="tel" placeholder="Valor Recebido de Programa Social" class="input3"
+        style="margin-bottom: 18px;"
+        [brmasker]="{money: true}"
+        value="{{post.valor_prog_social_cliente}}"
+        [(ngModel)]="valor_prog_social_cliente"></ion-input>
+
+
+
+        <button ion-button round block color="tema" class="btn" (click)="salvaroutros()" style="margin-top: 25px;">Salvar</button><br>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</ion-content>
